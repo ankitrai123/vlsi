@@ -1,0 +1,42 @@
+// Code your testbench here
+// or browse Examples
+module vending_machine_tb();
+  
+  reg clk;
+  reg rst;
+  reg [1:0]in;
+  
+  wire out;
+  wire [1:0] change;
+  
+vending_machine kkj(clk,rst,in,out,change);
+  
+  initial 
+    begin
+      $dumpfile("ajhgvhj.vcd");
+      $dumpvars(0,vending_machine_tb);
+      clk=0;
+      rst=1;
+      
+       #6    rst=~rst;
+      		 in=1;
+       
+       #13   in=2'b10;
+       #13   in=2'b01;
+       #13   in=2'b01;
+       #13   in=2'b10;
+       #13   in=2'b10;
+       #13   in=2'b01;
+       #63   $finish;
+//        #10   in=2'b10;
+//        #10   in=2'b10;
+//        #10   in=2'b01;
+      
+    end
+  
+always #2 clk=~clk;
+  //always #30 $finish;
+  
+  
+endmodule
+ 
